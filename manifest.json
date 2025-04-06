@@ -1,0 +1,29 @@
+{
+    "manifest_version": 3,
+    "name": "Udemy Quiz Tracker",
+    "description": "Tracks quiz answers for spaced repetition.",
+    "version": "1.0",
+    "permissions": ["storage","declarativeContent","scripting","activeTab"],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16": "icons/icon.png",
+        "48": "icons/icon.png",
+        "128": "icons/icon.png"
+      }
+    },
+    "content_scripts": [
+      {
+        "matches": ["*://www.udemy.com/*"],
+        "js": ["content.js"]
+      }
+    ],
+    "host_permissions": [
+      "http://*/*",
+      "https://*/*"
+    ]
+  }
+  
